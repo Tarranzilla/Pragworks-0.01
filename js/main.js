@@ -19,3 +19,24 @@ burger.addEventListener("click", () => {
         console.log("secondary nav closed");
     }
 });
+
+const opener = document.getElementById("config-btn");
+const closer = document.getElementById("closer01");
+const config = document.getElementById("config-div");
+let configIsOpen = false;
+
+opener.addEventListener("click", () => {
+    if (configIsOpen === false) {
+        config.classList.add("config-div-active");
+        configIsOpen = true;
+        console.log("config open");
+    }
+});
+
+closer.addEventListener("click", () => {
+    if (configIsOpen === true) {
+        config.classList.remove("config-div-active");
+        configIsOpen = false;
+        console.log("config closed");
+    }
+});
