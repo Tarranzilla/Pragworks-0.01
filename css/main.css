@@ -108,7 +108,7 @@
     --main-nav-height: 8vh; /* Experimental, era 10 antes */
     --mobile-nav-height: 8vh;
 
-    --secondary-nav-height: 92vh;
+    --secondary-nav-height: 87vh;
 
     --footer-height: 5vh;
 
@@ -417,7 +417,11 @@ body {
 
     padding-inline: 6vh;
 
-    background-color: var(--color-main-background);
+    background-image: linear-gradient(
+        var(--color-main-background) 80%,
+        var(--color-main-background-faded) 90%,
+        transparent 100%
+    );
 }
 
 .nav-primary {
@@ -590,6 +594,12 @@ body {
 .logo-placeholder {
     width: 4vh;
     height: 4vh;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-placeholder:hover {
+    transform: scale(1.5);
 }
 
 .logo-placeholder img {
@@ -601,7 +611,7 @@ body {
     margin-inline: 1vw;
     color: var(--color-text-default);
     font-size: 1.4vw;
-    font-weight: 200;
+    font-weight: 600;
 
     transition: color 0.3s, font-size 0.3s, font-weight 0.3s;
 }
@@ -612,10 +622,6 @@ body {
     font-weight: 300;
 
     cursor: pointer;
-}
-
-.alt-logo-text {
-    display: none;
 }
 
 /* Menu Div */
@@ -648,12 +654,13 @@ body {
     width: 48px;
     height: 48px;
     transform: scale(0.5);
-    transition: fill 0.3s ease-in-out;
+    transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .darkmode-switch svg:hover {
     cursor: pointer;
     fill: var(--color-icon-active);
+    transform: scale(0.65);
 }
 
 /* Lang Selector */
@@ -718,6 +725,11 @@ body {
     cursor: pointer;
 
     transform: scale(0.9); /* Experimental */
+    transition: transform 0.3s ease-in-out;
+}
+
+.burger-class:hover {
+    transform: scale(1.1);
 }
 
 .burger-class > * {
@@ -796,8 +808,6 @@ main {
     fill: var(--color-text-highlight) !important;
 }
 
-/* Parei aqui! 27/01 Revisao */
-
 section {
     display: flex;
     flex-direction: row;
@@ -812,10 +822,11 @@ section {
 
     margin-bottom: var(--main-nav-height);
 
+    box-shadow: inset 0px 0px 1px 2px black;
     border-radius: 20px;
 
     scroll-behavior: smooth;
-    scroll-margin-block-start: var(--main-nav-height);
+    scroll-margin-block-start: calc(var(--main-nav-height) + 1px);
     scroll-snap-align: start;
 
     overflow: hidden;
@@ -1001,7 +1012,12 @@ footer {
     width: 100vw;
     height: 5vh;
 
-    background-color: var(--color-footer-background);
+    background-image: linear-gradient(
+        0deg,
+        var(--color-main-background) 85%,
+        var(--color-main-background-faded) 95%,
+        transparent 100%
+    );
 }
 
 .social-media-icons {
