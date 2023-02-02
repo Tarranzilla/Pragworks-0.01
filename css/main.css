@@ -618,6 +618,7 @@ body {
     padding: 10px;
 
     border: 1px solid var(--color-text-default);
+    border-radius: 5px;
 }
 
 .nav-secondary-sub-1 .config-sub-list {
@@ -652,7 +653,8 @@ body {
 }
 
 .nav-secondary-sub-1 button:hover {
-    background-color: var(--color-text-default);
+    background-color: var(--color-nav-text-active);
+    border: 1px solid var(--color-nav-text-active);
     color: var(--color-main-background);
     cursor: pointer;
 }
@@ -908,7 +910,7 @@ body {
 
     position: absolute;
 
-    background-color: var(--color-icon-faded);
+    background-color: var(--color-nav-text-default);
 
     transition: transform 1s ease-in-out, opacity 0.8s ease-in-out,
         background-color 0.2s ease-in-out;
@@ -927,7 +929,7 @@ body {
 }
 
 .close-class:hover > * {
-    background-color: var(--color-icon-active);
+    background-color: var(--color-nav-text-active);
 }
 
 /* ===== Conteúdo ==== */
