@@ -566,9 +566,9 @@ body {
     z-index: 2;
     position: absolute;
 
-    top: 1vh;
+    top: calc(var(--main-nav-height) + 3vh);
 
-    display: none;
+    display: flex;
     flex-direction: column;
 
     height: auto;
@@ -584,6 +584,12 @@ body {
     padding: 10px;
 
     background-color: var(--color-main-background);
+
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+    transform: translateY(100vh);
+
+    overflow: hidden;
 }
 
 .config-header {
@@ -688,7 +694,8 @@ body {
 }
 
 .config-div-active {
-    display: flex;
+    pointer-events: all;
+    transform: translateY(0);
 }
 
 .desenvolvido-por {
