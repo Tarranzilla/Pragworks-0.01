@@ -1222,11 +1222,12 @@ footer {
     display: flex;
     flex-direction: row;
 
-    width: auto;
+    width: 33%;
     height: 100%;
 
     align-items: center;
     align-content: center;
+    justify-content: flex-end;
 }
 
 .social-media-icons a {
@@ -1264,12 +1265,14 @@ footer {
 }
 
 .icone-whats {
-    background-color: var(--color-hr-lightgreen) !important;
+    background-color: var(--color-nav-text-active) !important;
 }
 
 .direitos-reservados {
     margin-inline: 10vw;
     color: var(--color-text-default);
+
+    width: 33%;
 
     display: flex;
     flex-direction: column;
@@ -1283,14 +1286,21 @@ footer {
     font-weight: 500;
 }
 
-.apoiado-por {
+.telefone {
     color: var(--color-text-default);
 
     display: flex;
     flex-direction: row;
 
     align-items: center;
-    justify-content: center;
+    align-content: center;
+    justify-content: flex-start;
+
+    width: 33%;
+}
+
+.telefone a {
+    color: var(--color-nav-text-active);
 }
 
 .apoiado-por img {
