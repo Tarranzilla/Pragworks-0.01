@@ -425,6 +425,7 @@ body {
 }
 
 .nav-primary {
+    z-index: 4;
     display: flex;
     flex-direction: row;
 
@@ -501,6 +502,7 @@ body {
 }
 
 .nav-secondary {
+    z-index: 2;
     display: flex;
     flex-direction: column;
 
@@ -510,11 +512,14 @@ body {
 
     position: absolute;
 
-    height: var(--secondary-nav-height);
+    height: 100vh;
     width: 100vw;
 
-    top: var(--main-nav-height);
+    top: 0;
     left: 0;
+
+    padding-top: var(--main-nav-height);
+    padding-bottom: var(--footer-height);
 
     background-color: var(--color-main-background);
 
@@ -710,6 +715,7 @@ body {
 
 /* logo */
 .logo-container {
+    z-index: 4;
     display: flex;
     flex-direction: row;
 
@@ -723,17 +729,20 @@ body {
 .logo-placeholder {
     width: 4vh;
     height: 4vh;
+    transform: scale(1.5);
 
     transition: transform 0.3s ease-in-out;
 }
 
 .logo-placeholder:hover {
-    transform: scale(1.5);
+    transform: scale(1.6);
 }
 
-.logo-placeholder img {
+.logo-placeholder svg {
     width: 100%;
     height: 100%;
+
+    fill: var(--color-nav-text-active);
 }
 
 .logo-text {
@@ -755,6 +764,7 @@ body {
 
 /* Menu Div */
 .menu-div {
+    z-index: 4;
     width: 25%;
     height: 100%;
 
@@ -1177,9 +1187,9 @@ section {
 /* ===== Rodapé ===== */
 
 footer {
+    z-index: 5;
     overflow-y: hidden;
 
-    z-index: 3;
     position: fixed;
     bottom: 0;
 
