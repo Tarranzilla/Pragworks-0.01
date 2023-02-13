@@ -1052,6 +1052,91 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _s = $RefreshSig$();
 React = require("b50f0253127ba530");
 ReactDOM = require("591e6252817d8740");
+window.addEventListener("load", function() {
+    FX.fadeOut(document.querySelector(".loader-wrapper"), {
+        duration: 1000,
+        complete: function() {
+            document.querySelector(".loader-wrapper").style.display = "none";
+            console.log("Site Carregado!");
+        }
+    });
+    this.setTimeout(()=>{
+        document.body.classList.remove("body-overflow");
+    }, 1000);
+});
+(function() {
+    var FX1 = {
+        easing: {
+            linear: function(progress) {
+                return progress;
+            },
+            quadratic: function(progress) {
+                return Math.pow(progress, 2);
+            },
+            swing: function(progress) {
+                return 0.5 - Math.cos(progress * Math.PI) / 2;
+            },
+            circ: function(progress) {
+                return 1 - Math.sin(Math.acos(progress));
+            },
+            back: function(progress, x) {
+                return Math.pow(progress, 2) * ((x + 1) * progress - x);
+            },
+            bounce: function(progress) {
+                for(var a = 0, b = 1, result;; a += b, b /= 2){
+                    if (progress >= (7 - 4 * a) / 11) return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
+                }
+            },
+            elastic: function(progress, x) {
+                return Math.pow(2, 10 * (progress - 1)) * Math.cos(20 * Math.PI * x / 3 * progress);
+            }
+        },
+        animate: function(options) {
+            var start = new Date();
+            var id = setInterval(function() {
+                var timePassed = new Date() - start;
+                var progress = timePassed / options.duration;
+                if (progress > 1) progress = 1;
+                options.progress = progress;
+                var delta = options.delta(progress);
+                options.step(delta);
+                if (progress == 1) {
+                    clearInterval(id);
+                    options.complete();
+                }
+            }, options.delay || 10);
+        },
+        fadeOut: function(element, options) {
+            var to = 1;
+            this.animate({
+                duration: options.duration,
+                delta: function(progress) {
+                    progress = this.progress;
+                    return FX1.easing.swing(progress);
+                },
+                complete: options.complete,
+                step: function(delta) {
+                    element.style.opacity = to - delta;
+                }
+            });
+        },
+        fadeIn: function(element, options) {
+            var to = 0;
+            this.animate({
+                duration: options.duration,
+                delta: function(progress) {
+                    progress = this.progress;
+                    return FX1.easing.swing(progress);
+                },
+                complete: options.complete,
+                step: function(delta) {
+                    element.style.opacity = to + delta;
+                }
+            });
+        }
+    };
+    window.FX = FX1;
+})();
 function App() {
     _s();
     const [count, setCount] = React.useState(0);
@@ -1065,7 +1150,7 @@ function App() {
                 ]
             }, void 0, true, {
                 fileName: "src/react_test.js",
-                lineNumber: 8,
+                lineNumber: 106,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -1073,13 +1158,13 @@ function App() {
                 children: "Click me"
             }, void 0, false, {
                 fileName: "src/react_test.js",
-                lineNumber: 9,
+                lineNumber: 107,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/react_test.js",
-        lineNumber: 7,
+        lineNumber: 105,
         columnNumber: 9
     }, this);
 }
@@ -1087,7 +1172,7 @@ _s(App, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
 _c = App;
 ReactDOM.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/react_test.js",
-    lineNumber: 14,
+    lineNumber: 112,
     columnNumber: 17
 }, undefined), document.getElementById("section-001-id"));
 var _c;

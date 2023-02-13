@@ -1,0 +1,2 @@
+let e=localStorage.getItem("darkMode");const o=document.querySelector("#dark-mode-toggle"),d=()=>{document.body.classList.add("darkmode"),localStorage.setItem("darkMode","enabled"),console.log(e)};"enabled"===e&&d(),o.addEventListener("click",(()=>{e=localStorage.getItem("darkMode"),"enabled"!==e?d():(document.body.classList.remove("darkmode"),localStorage.setItem("darkMode","disabled"),console.log(e))}));
+//# sourceMappingURL=index.f2438625.js.map
