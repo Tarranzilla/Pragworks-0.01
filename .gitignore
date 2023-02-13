@@ -1,3 +1,5 @@
-00_backup/
-node_modules/
+node_modules
+.parcel-cache
 .env
+.cache
+.netlify
