@@ -1,5 +1,4 @@
 // Hamburger e Menu Secundário
-
 const burger = document.getElementById("burger01");
 const nav2 = document.getElementById("nav-secondary-id");
 let nav2isOpen = false;

@@ -2,7 +2,7 @@ const registerServiceWorker = async () => {
     if ("serviceWorker" in navigator) {
         try {
             const registration = await navigator.serviceWorker.register(
-                "/sw.js",
+                new URL("/sw.js", import.meta.url),
                 {
                     scope: "/",
                 }

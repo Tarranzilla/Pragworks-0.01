@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+React = require("react");
+ReactDOM = require("react-dom");
 
 function App() {
     const [count, setCount] = React.useState(0);
