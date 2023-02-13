@@ -1,5 +1,5 @@
-00_backup/
 node_modules/
 .env
+.cache
 # Local Netlify folder
 .netlify
