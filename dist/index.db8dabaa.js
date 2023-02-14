@@ -1052,95 +1052,11 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _s = $RefreshSig$();
 React = require("b50f0253127ba530");
 ReactDOM = require("591e6252817d8740");
-window.addEventListener("load", function() {
-    FX.fadeOut(document.querySelector(".loader-wrapper"), {
-        duration: 1000,
-        complete: function() {
-            document.querySelector(".loader-wrapper").style.display = "none";
-            console.log("Site Carregado!");
-        }
-    });
-    this.setTimeout(()=>{
-        document.body.classList.remove("body-overflow");
-    }, 1000);
-});
-(function() {
-    var FX1 = {
-        easing: {
-            linear: function(progress) {
-                return progress;
-            },
-            quadratic: function(progress) {
-                return Math.pow(progress, 2);
-            },
-            swing: function(progress) {
-                return 0.5 - Math.cos(progress * Math.PI) / 2;
-            },
-            circ: function(progress) {
-                return 1 - Math.sin(Math.acos(progress));
-            },
-            back: function(progress, x) {
-                return Math.pow(progress, 2) * ((x + 1) * progress - x);
-            },
-            bounce: function(progress) {
-                for(var a = 0, b = 1, result;; a += b, b /= 2){
-                    if (progress >= (7 - 4 * a) / 11) return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
-                }
-            },
-            elastic: function(progress, x) {
-                return Math.pow(2, 10 * (progress - 1)) * Math.cos(20 * Math.PI * x / 3 * progress);
-            }
-        },
-        animate: function(options) {
-            var start = new Date();
-            var id = setInterval(function() {
-                var timePassed = new Date() - start;
-                var progress = timePassed / options.duration;
-                if (progress > 1) progress = 1;
-                options.progress = progress;
-                var delta = options.delta(progress);
-                options.step(delta);
-                if (progress == 1) {
-                    clearInterval(id);
-                    options.complete();
-                }
-            }, options.delay || 10);
-        },
-        fadeOut: function(element, options) {
-            var to = 1;
-            this.animate({
-                duration: options.duration,
-                delta: function(progress) {
-                    progress = this.progress;
-                    return FX1.easing.swing(progress);
-                },
-                complete: options.complete,
-                step: function(delta) {
-                    element.style.opacity = to - delta;
-                }
-            });
-        },
-        fadeIn: function(element, options) {
-            var to = 0;
-            this.animate({
-                duration: options.duration,
-                delta: function(progress) {
-                    progress = this.progress;
-                    return FX1.easing.swing(progress);
-                },
-                complete: options.complete,
-                step: function(delta) {
-                    element.style.opacity = to + delta;
-                }
-            });
-        }
-    };
-    window.FX = FX1;
-})();
+loadingModule = require("e93828252a53e73e");
 function App() {
     _s();
     const [count, setCount] = React.useState(0);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return loadingModule.pageLoader(), /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
@@ -1150,29 +1066,29 @@ function App() {
                 ]
             }, void 0, true, {
                 fileName: "src/react_test.js",
-                lineNumber: 106,
-                columnNumber: 13
+                lineNumber: 12,
+                columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>setCount(count + 1),
                 children: "Click me"
             }, void 0, false, {
                 fileName: "src/react_test.js",
-                lineNumber: 107,
-                columnNumber: 13
+                lineNumber: 13,
+                columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/react_test.js",
-        lineNumber: 105,
-        columnNumber: 9
+        lineNumber: 11,
+        columnNumber: 13
     }, this);
 }
 _s(App, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
 _c = App;
 ReactDOM.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/react_test.js",
-    lineNumber: 112,
+    lineNumber: 19,
     columnNumber: 17
 }, undefined), document.getElementById("section-001-id"));
 var _c;
@@ -1183,7 +1099,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","b50f0253127ba530":"21dqq","591e6252817d8740":"j6uA9","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","b50f0253127ba530":"21dqq","591e6252817d8740":"j6uA9","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","e93828252a53e73e":"31kUy"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("68c278b3af4f3a73");
 
@@ -25480,6 +25396,36 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"21e118f4f64831d5":"786KC"}]},["1xC6H","bYabC","6lgOu"], "6lgOu", "parcelRequire1741")
+},{"21e118f4f64831d5":"786KC"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["1xC6H","bYabC","6lgOu"], "6lgOu", "parcelRequire1741")
 
 //# sourceMappingURL=index.db8dabaa.js.map
